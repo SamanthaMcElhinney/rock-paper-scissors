@@ -9,6 +9,46 @@
         <link rel="stylesheet" href="">
     </head>
     <body>
+      <section class="player-info">
+        <section class="player-1-info">
+          <h2 class="player-description">Human</h2>     
+          <p class="scoring">Wins:</p>
+          <p class="wins-counter" id="wins-counter-human">0</p>
+        </section>
+        <div class="button-change-game">
+          <button id="change-game hidden"> Change game?</button>
+        </div> 
+      </section>
+      <section class="main page">
+        <div class="title-and-descriptors">
+          <h1 class="main-page-title">Rock, Paper, Scissors</h1>
+          <p class="instructions">Choose your game!</p>
+        </div>
+        <section class="game-selector" id="classic-game-selector">
+          <h2 class="game-type-title">Classic</h2>
+          <p class="rule"> rock > scissors</p>
+          <p class="rule"> paper > rock</p>
+          <p class="rule">scissors > paper</p>
+        </section>
+        <section class="game-selector" id="Difficult-game-selector">
+          <h2 class="game-type-title">Difficult</h2>
+          <p class="rule"> rock > scissors</p>
+          <p class="rule"> paper > rock</p>
+          <p class="rule">scissors > paper</p>
+          <p class="rule">scissors > paper</p>
+          <p class="rule">scissors > paper</p>
+        </section>
+        <section class="icons">
+            <img class="">
+        </section>
+      </section>
+      <section class="player-info">
+        <section class="player-2-info">
+          <h2 class="player-description">Aliens</h2>
+          <p class="scoring">Wins:</p>
+          <p class="wins-counter" id="wins-counter-alien">0</p>
+        </section>
+      </section>
         <script src="rock-paper-scissors.js" async defer></script>
     </body>
 </html>
