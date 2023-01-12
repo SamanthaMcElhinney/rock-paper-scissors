@@ -1,5 +1,4 @@
 * {
-    border:1px solid green;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -13,6 +12,7 @@ body {
     align-items: center;
     width: 20%;
     background: #c5f0a4; 
+    text-align: center;
 }
 
 .player1-img, .player2-img{
