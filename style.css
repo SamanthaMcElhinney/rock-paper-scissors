@@ -1,10 +1,10 @@
 * {
-    border:1px  solid green;
+    border:1px solid green;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
     display: flex;
-    height: 100vh;
 }
 
 .side-bar{
@@ -12,7 +12,12 @@ body {
     flex-direction: column;
     align-items: center;
     width: 20%;
+    background: #c5f0a4; 
+}
 
+.player1-img, .player2-img{
+    width:75px;
+    height:75px;
 }
 
 .hidden {
@@ -25,4 +30,44 @@ body {
     align-items: center;
     justify-content: space-evenly;
     width:60%;
+    background: #2eb872; 
+}
+
+.game-selector{
+    display: flex;
+    background: #a3de83;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-bottom: 30px;
+}
+
+.instructions{
+    font-size: 30px;
+    text-align: center;
+}
+
+.main-page-title {
+    font-size:75px;
+    font-weight: bolder;
+}
+.cat-img, .cup-img, .water-img, .yarn-img, .dog-img {
+    width:200px;
+    height: 200px;
+}
+
+.player-description {
+    font-weight: bolder;
+}
+
+.icons{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
 }
