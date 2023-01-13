@@ -15,9 +15,14 @@ body {
     text-align: center;
 }
 
+.scoring {
+    font-size: large;
+}
+
 .player1-img, .player2-img{
-    width:75px;
-    height:75px;
+    margin-top: 100px;
+    width: 170px;
+    height:150px;
 }
 
 .hidden {
@@ -43,6 +48,10 @@ body {
     padding-right: 50px;
     padding-left: 50px;
     margin-bottom: 30px;
+}
+
+#classic-game-selector{
+    margin: top 300px;
 }
 
 .instructions{
