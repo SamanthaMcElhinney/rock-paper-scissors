@@ -38,7 +38,7 @@ body {
     background: #2eb872; 
 }
 
-.game-selector{
+.game-selector {
     display: flex;
     background: #a3de83;
     flex-wrap: nowrap;
@@ -48,13 +48,15 @@ body {
     padding-right: 50px;
     padding-left: 50px;
     margin-bottom: 30px;
+    cursor: pointer;
+    
 }
 
 #classic-game-selector{
     margin: top 300px;
 }
 
-.instructions{
+.user-instructions{
     font-size: 30px;
     text-align: center;
 }
