@@ -1,31 +1,23 @@
 class Player {
-    constructor(playerName, playerIcon){
-        this.name = playerName
-        this.icon = playerIcon
+    constructor(name, icon) {
+        this.name = name;
+        this.icon = icon;
+        this.choice = undefined;
         this.wins = 0
-        this.playerChoice
-    }
-
-    // takeTurn()
-
-    randomChoice(choiceArray){
-        var randomIndex = Math.floor(Math.random() * choiceArray.length)
-        return this.playerChoice[randomIndex]
-    }
-
-    updateChoice(playerChoice){
-        if(this.name === 'human') {
-            this.playerChoice = playerChoice
-        } else {
-            this.randomChoice()
-        }
-    }
-}
-
-//When the player selects a game choice either classic or difficult
-//after you click classic version text changes to choose your fighter with three images. 
-//The wins is updated on either human or cat user
-//change game takes you back to the initial page.  
-
-//computerMove needs to generate a random number assigned to an array.
-//humanMove to assign a value based on what is clicked
+    };
+    takeTurn(choiceArray, playerChoice) {
+        if (this.name === "human") { 
+            this.choice = playerChoice;
+        } else if (this.name === "cat") { 
+            var randomIndex = Math.floor(Math.random() * choiceArray.length);
+            var randomChoice = choiceArray[randomIndex];
+            this.choice = randomChoice;
+        };
+    };
+};
+// GameBoard:
+// // A way to keep track of the data for the game board
+// A way to keep track of the selected game type
+// A way to check the Game’s board data for win conditions
+// A way to detect when a game is a draw (no one has won)
+// A way to reset the Game’s board to begin a new game
