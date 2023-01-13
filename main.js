@@ -1,4 +1,6 @@
-var currentGame
+//global variables
+var currentGame = new Game
+
 var classicGameSelector = document.querySelector("#classic-game-selector")
 var difficultGameSelector = document.querySelector("#Difficult-game-selector")
 var userInstructions = document.querySelector(".user-instructions");
@@ -10,13 +12,13 @@ var dogIcon = document.querySelector(".dog-img")
 var changeGameButton = document.querySelector("#change-game")
 
 //event listeners
-window.addEventListener("load", startGame)
+// window.addEventListener("load", startGame)
 classicGameSelector.addEventListener("click", displayClassicGameIcons)
 difficultGameSelector.addEventListener("click", displayDifficultGameIcons)
 
-function startGame() {
-    currentGame = new Game
-}
+// function startGame() {
+//     currentGame = new Game
+// }
 
 function displayClassicGameIcons() {
     userInstructions.innerText = "Choose your fighter!";
@@ -35,6 +37,8 @@ function displayDifficultGameIcons() {
     yarnIcon.classList.remove("hidden")
     dogIcon.classList.remove("hidden")
 }
+
+
 
 // function displayGameMode(){
 //     userInstructions.innerText = "Choose your fighter!"
