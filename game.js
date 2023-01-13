@@ -50,34 +50,36 @@ class Game {
     var human = this.humanPlayer.choice;
     var cat = this.catPlayer.choice;
 
-    if (human === "water" && (cat === "catPaw" || "yarn")) {
+    if (human === cat) {
+      this.winner = "draw";
+    } else if (human === "water" && (cat === "catPaw" || "yarn")) {
+        this.winner = human;
+        this.humanPlayer.wins += 1;
+    }else if (human === "cat" && (cat === "cup"|| "yarn")) {
       this.winner = human;
       this.humanPlayer.wins += 1;
-    } else if ((human === "cat" && cat === "cup") || "yarn") {
+    } else if (human === "cup" && (cat === "water" || "dog")) {
       this.winner = human;
       this.humanPlayer.wins += 1;
-    } else if ((human === "cup" && cat === "water") || "dog") {
+    } else if (human === "yarn" && (cat === "cup" || "dog")) {
       this.winner = human;
       this.humanPlayer.wins += 1;
-    } else if ((human === "yarn" && cat === "cup") || "dog") {
+    } else if (human === "dog" && (cat === "water" || "cat")) {
       this.winner = human;
       this.humanPlayer.wins += 1;
-    } else if ((human === "dog" && cat === "water") || "cat") {
-      this.winner = human;
-      this.humanPlayer.wins += 1;
-    } else if ((cat === "water" && dog === "cat") || "yarn") {
+    } else if (cat === "water" && (dog === "cat" || "yarn")) {
       this.winner = cat;
       this.catPlayer.wins += 1;
-    } else if ((cat === "cat" && human === "cup") || "yarn") {
+    } else if (cat === "cat" && (human === "cup" || "yarn")) {
       this.winner = cat;
       this.catPlayer.wins += 1;
-    } else if ((cat === "cup" && human === "water") || "dog") {
+    } else if (cat === "cup" && (human === "water" || "dog")) {
       this.winner = cat;
       this.catPlayer.wins += 1;
-    } else if ((cat === "yarn" && human === "cup") || "dog") {
+    } else if (cat === "yarn" && (human === "cup" || "dog")) {
       this.winner = cat;
       this.catPlayer.wins += 1;
-    } else if ((cat === "dog" && human === "water") || "cat") {
+    } else if (cat === "dog" && (human === "water" || "cat")) {
       this.winner = cat;
       this.catPlayer.wins += 1;
     }
