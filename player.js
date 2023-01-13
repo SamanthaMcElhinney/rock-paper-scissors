@@ -1,19 +1,24 @@
 class Player {
-    constructor(){
+    constructor(playerName, playerIcon){
         this.name = playerName
-        this.token = playerToken
+        this.icon = playerIcon
         this.wins = 0
-        this.playerChoice 
+        this.playerChoice
     }
 
-    humanMove(event) {
-        this.playerChoice = event.target.value
+    // takeTurn()
+
+    randomChoice(choiceArray){
+        var randomIndex = Math.floor(Math.random() * choiceArray.length)
+        return this.playerChoice[randomIndex]
     }
 
-    computerMove(array){
-        var number = Math.floor(Math.random() * array.length)
-        this.playerChoice = array[number]
-        return this.playerChoice
+    updateChoice(playerChoice){
+        if(this.name === 'human') {
+            this.playerChoice = playerChoice
+        } else {
+            this.randomChoice()
+        }
     }
 }
 
