@@ -18,8 +18,11 @@ var images = document.querySelector(".icons")
 window.addEventListener("load", startGame)
 classicGameSelector.addEventListener("click", displayClassicGameIcons)
 difficultGameSelector.addEventListener("click", displayDifficultGameIcons)
-images.addEventListener("click", runGame)
-changeGameButton.addEventListener("click", displayMenu)
+images.addEventListener("click", function () {
+ humanClassicSelection(event);
+ updateScore()
+})
+// changeGameButton.addEventListener("click", displayMenu)
 
 function startGame() {
     currentGame = new Game
@@ -60,11 +63,6 @@ function displayDifficultGameIcons() {
     difficultGameSelector.classList.add("hidden");
 }
 
-function runGame(target) {
-    currentGame.humanPlayer.humanChoice(target)
-    compareResults()
-}
-
 function resetGame() {
     if (currentGame.gameType === "easy") {
         setTimeout(displayClassicGameIcons, 3000)
@@ -74,19 +72,54 @@ function resetGame() {
 }
 
 
-function playEasyGameHuman(event) {
+function humanClassicSelection(event) {
     if (event.target.classList.contains("cat-img")) {
-        game.humanPlayer = "catPaw"
+        currentGame.humanPlayer.choice = "catPaw"
+        currentGame.catPlayer.choice = "catPaw"
+        console.log("hi")
+        cupIcon.classList.add("hidden");
+        catIcon.classList.remove("hidden");
+        waterIcon.classList.add("hidden");
+        yarnIcon.classList.add("hidden");
+        dogIcon.classList.add("hidden"); 
     } else if (event.target.classList.contains("water-img")) {
-        game.humanPlayer = "water"
+        currentGame.humanPlayer.choice = "water"
+        currentGame.catPlayer.choice = "catPaw";
+        console.log('yo')
+        catIcon.classList.add("hidden");
+        cupIcon.classList.add("hidden");
+        waterIcon.classList.remove("hidden");
+        yarnIcon.classList.add("hidden");
+        dogIcon.classList.add("hidden"); 
     } else if (event.target.classList.contains("cup-img")) {
-        game.humanPlayer = "cup"
+        currentGame.humanPlayer.choice = "cup"
+        currentGame.catPlayer.choice = "cup"
+        console.log("yee")
+        catIcon.classList.add("hidden");
+        cupIcon.classList.remove("hidden");
+        waterIcon.classList.add("hidden");
+        yarnIcon.classList.add("hidden");
+        dogIcon.classList.add("hidden"); 
+    }
+    currentGame.playEasyGame()
+}
+
+function updateScore(){
+    winsCounterHuman.innerText = currentGame.humanPlayer.wins
+    winsCounterCat.innterText = currentGame.catPlayer.wins
+}
+
+function selectGameMode(mode){
+    if (mode ==="easy") {
+        currentGame.gameType = "easy"
+    } else if (mode === "hard") {
+        currentGame.gameType = "hard"
     }
 }
 
-function displayGameMode(){
-    userInstructions.innerText = "Choose your fighter!"
-    difficultGameSelector.classList.add('hidden')
-    classicGameSelector.classList.add("hidden")
-    changeGameButton.classList.remove("hidden")
-}
+// function displayGameMode(){
+//     userInstructions.innerText = "Choose your fighter!"
+//     difficultGameSelector.classList.add('hidden')
+//     classicGameSelector.classList.add("hidden")
+//     changeGameButton.classList.remove("hidden")
+// }
