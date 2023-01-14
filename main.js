@@ -11,14 +11,14 @@ var yarnIcon = document.querySelector(".yarn-img")
 var dogIcon = document.querySelector(".dog-img")
 var changeGameButton = document.querySelector("#change-game")
 
-//event listeners
-// window.addEventListener("load", startGame)
+// event listeners
+window.addEventListener("load", startGame)
 classicGameSelector.addEventListener("click", displayClassicGameIcons)
 difficultGameSelector.addEventListener("click", displayDifficultGameIcons)
 
-// function startGame() {
-//     currentGame = new Game
-// }
+function startGame() {
+    currentGame = new Game
+}
 
 function displayClassicGameIcons() {
     userInstructions.innerText = "Choose your fighter!";
@@ -36,9 +36,13 @@ function displayDifficultGameIcons() {
     waterIcon.classList.remove("hidden");
     yarnIcon.classList.remove("hidden")
     dogIcon.classList.remove("hidden")
+    classicGameSelector.classList.add("hidden");
+    difficultGameSelector.classList.add("hidden");
 }
 
-
+function runGame(event){
+    currentGame.humanPlayer.takeTurn(event)
+}
 
 // function displayGameMode(){
 //     userInstructions.innerText = "Choose your fighter!"
