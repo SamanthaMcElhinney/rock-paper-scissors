@@ -8,7 +8,7 @@ class Game {
     this.winner = undefined;
   }
 
-  gamemode(gameType) {
+  gameMode(gameType) {
     this.gameType = gameType;
     if (this.gameType === "easy") {
       this.choices = ["water", "catPaw", "cup"];
