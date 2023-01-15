@@ -66,7 +66,7 @@ body {
     font-size:75px;
     font-weight: bolder;
 }
-.cat-img, .cup-img, .water-img, .yarn-img, .dog-img {
+.cat-img, .cup-img, .water-img, .yarn-img, .dog-img, .results-icons {
     width:200px;
     height: 200px;
     display: flex;
@@ -80,7 +80,7 @@ body {
     font-weight: bolder;
 }
 
-.icons{
+.icons {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
