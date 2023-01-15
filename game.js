@@ -35,7 +35,7 @@ class Game {
 }
 
   playEasyGame() {
-    // this.gameType = "easy"
+    this.gameType = "easy"
     var human = this.humanPlayer.choice;
     var cat = this.catPlayer.choice;
     if (human === cat) {
@@ -62,6 +62,7 @@ class Game {
   }
 
   playDifficultGame() {
+    this.gameType = "hard"
     var human = this.humanPlayer.choice;
     var cat = this.catPlayer.choice;
 
