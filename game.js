@@ -71,37 +71,29 @@ class Game {
     } else if (human === "water" && (cat === "catPaw" || "yarn")) {
         this.winner = human;
         this.humanPlayer.wins += 1;
+        this.message = "You win!"
     }else if (human === "cat" && (cat === "cup"|| "yarn")) {
       this.winner = human;
       this.humanPlayer.wins += 1;
+      this.message = "You win!";
     } else if (human === "cup" && (cat === "water" || "dog")) {
       this.winner = human;
       this.humanPlayer.wins += 1;
+      this.message = "You win!";
     } else if (human === "yarn" && (cat === "cup" || "dog")) {
       this.winner = human;
       this.humanPlayer.wins += 1;
+      this.message = "You win!";
     } else if (human === "dog" && (cat === "water" || "cat")) {
       this.winner = human;
       this.humanPlayer.wins += 1;
+      this.message = "You win!";
     } else {
       this.winner = cat;
       this.catPlayer.wins += 1;
+      this.message = "You lost!";
     } 
+    return this.message
   }
 }
 
-// } else if (cat === "water" && (dog === "cat" || "yarn")) {
-//       this.winner = cat;
-//       this.catPlayer.wins += 1;
-//     } else if (cat === "cat" && (human === "cup" || "yarn")) {
-//       this.winner = cat;
-//       this.catPlayer.wins += 1;
-//     } else if (cat === "cup" && (human === "water" || "dog")) {
-//       this.winner = cat;
-//       this.catPlayer.wins += 1;
-//     } else if (cat === "yarn" && (human === "cup" || "dog")) {
-//       this.winner = cat;
-//       this.catPlayer.wins += 1;
-//     } else if (cat === "dog" && (human === "water" || "cat")) {
-//       this.winner = cat;
-//       this.catPlayer.wins += 1;
