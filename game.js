@@ -32,7 +32,7 @@ class Game {
 
   humanChoice(event) {
     this.humanPlayer.choice = event;
-  }
+}
 
   playEasyGame() {
     // this.gameType = "easy"
@@ -51,11 +51,11 @@ class Game {
       this.message = "You won!";
     } else if (human === "catPaw" && cat === "cup") {
       this.winner = human;
-      this.humanPlayer.wins += 1;
+      this.humanPlayer.wins ++
       this.message = "You won!";
     } else {
       this.winner = cat;
-      this.catPlayer.wins += 1;
+      this.catPlayer.wins ++
       this.message = "You lost!";
     }
     return this.message
