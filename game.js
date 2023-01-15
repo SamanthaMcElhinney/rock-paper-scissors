@@ -62,6 +62,7 @@ class Game {
   }
 
   playDifficultGame() {
+    this.gameType = "hard"
     var human = this.humanPlayer.choice;
     var cat = this.catPlayer.choice;
 
