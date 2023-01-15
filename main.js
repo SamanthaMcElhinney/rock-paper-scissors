@@ -9,7 +9,7 @@ var cupIcon = document.querySelector(".cup-img")
 var waterIcon = document.querySelector(".water-img")
 var yarnIcon = document.querySelector(".yarn-img")
 var dogIcon = document.querySelector(".dog-img")
-var changeGameButton = document.querySelector("#change-game")
+var changeGameButton = document.querySelector(".change-game");
 var winsCounterHuman = document.querySelector("#wins-counter-human")
 var winsCounterCat = document.querySelector("#wins-counter-cat");
 var images = document.querySelector(".icons")
@@ -24,17 +24,12 @@ images.addEventListener("click", function () {
 //  computerChoice()
  updateScore()
  updateMessage()
+ resetGame();
 })
-// changeGameButton.addEventListener("click", displayMenu)
+changeGameButton.addEventListener("click", displayMenu)
 
 function startGame() {
     currentGame = new Game ()
-}
-
-function resetScore(){
-    startGame()
-    updateScore()
-    displayMainMenu()
 }
 
 function hideImages() {
@@ -46,11 +41,10 @@ function hideImages() {
 }
 function resetGame() {
     if (currentGame.gameType === "easy") {
-        setTimeout(displayClassicGameIcons, 3000)
-    } else if (!currentGame.gameType === "hard") {
-        setTimeout(displayDifficultGameIcons, 3000)
+        setTimeout(displayClassicGameIcons, 1000)
+    } else if (currentGame.gameType === "hard") {
+        setTimeout(displayDifficultGameIcons, 1000)
     }
-        displayMainMenu(); 
     }
 
 function displayMainMenu() {
@@ -80,8 +74,6 @@ function displayDifficultGameIcons() {
     classicGameSelector.classList.add("hidden");
     difficultGameSelector.classList.add("hidden");
 }
-
-
 
 function humanClassicSelection(event) {
     if (event.target.classList.contains("cat-img")) {
@@ -115,20 +107,26 @@ function humanClassicSelection(event) {
     currentGame.playEasyGame()
 }
 
-// function computerChoice() {
-//     var catChoice = currentGame.catPlayer.choice
-//     computerChoiceContainer.innerHTML = ''
-//     computerChoiceContainer.innerHTML +=
-//         ` <section class="icons"> 
-//                 <img class="computer-choice" src='${catChoice}'>
-//                 <img class="cat-img hidden" src="https://i2.wp.com/ittykitty.com/wp-content/uploads/2020/05/crop-Shutterstock-a-cute-calico-cat-raises-its-paw-against-a-blue-background.jpg?fit=1200%2C686&ssl=1" alt="Image of angry cat with paw about to slap a person">
-//                 <img class="cup-img hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQhRq9mxjNOZItALuo3JYFa_qzb11NdUq3Uw&usqp=CAU" alt="orange empty cup">
-//                 <img class="water-img hidden" src="https://www.shutterstock.com/image-photo/colorful-ocean-wave-sea-water-260nw-693783628.jpg" alt="water image">
-//                 <img class="yarn-img hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtpQj-s4U51FwE5XNfCnbECiAbg3g-MHRQ0g&usqp=CAU" alt="alien wearing yarn sweater">
-//                 <img class="dog-img hidden" src="https://i.pinimg.com/originals/21/59/c4/2159c493313c6084db38bee8e69a4fab.jpg" alt="ugly dog face image">
-//             </section>
-// `
-// }
+function checkCatChoice(){
+    if (currentGame.catChoice === "catPaw") {
+        return ''
+    }
+}
+
+function catChoice() {
+    var catChoice = currentGame.catPlayer.choice
+    computerChoiceContainer.innerHTML = ''
+    computerChoiceContainer.innerHTML +=
+        ` <section class="icons"> 
+                <img class="computer-choice" src='${catChoice}'>
+                <img class="cat-img hidden" src="https://i2.wp.com/ittykitty.com/wp-content/uploads/2020/05/crop-Shutterstock-a-cute-calico-cat-raises-its-paw-against-a-blue-background.jpg?fit=1200%2C686&ssl=1" alt="Image of angry cat with paw about to slap a person">
+                <img class="cup-img hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQhRq9mxjNOZItALuo3JYFa_qzb11NdUq3Uw&usqp=CAU" alt="orange empty cup">
+                <img class="water-img hidden" src="https://www.shutterstock.com/image-photo/colorful-ocean-wave-sea-water-260nw-693783628.jpg" alt="water image">
+                <img class="yarn-img hidden" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtpQj-s4U51FwE5XNfCnbECiAbg3g-MHRQ0g&usqp=CAU" alt="alien wearing yarn sweater">
+                <img class="dog-img hidden" src="https://i.pinimg.com/originals/21/59/c4/2159c493313c6084db38bee8e69a4fab.jpg" alt="ugly dog face image">
+            </section>
+`
+}
 
 function updateScore(){
     winsCounterHuman.innerText = currentGame.humanPlayer.wins
