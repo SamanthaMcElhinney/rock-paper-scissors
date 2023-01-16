@@ -16,14 +16,12 @@ var winsCounterCat = document.querySelector("#wins-counter-cat");
 var images = document.querySelector(".icons")
 var resultSection = document.querySelector(".player-results");
 
-
 // event listeners
 window.addEventListener("load", startGame)
 classicGameSelector.addEventListener("click", displayClassicGameIcons)
 difficultGameSelector.addEventListener("click", displayDifficultGameIcons)
 images.addEventListener("click", function () {
 humanClassicSelection(event);
-// checkCatChoice()
 resultsSection() 
 updateScore();
 updateMessage();
@@ -40,8 +38,12 @@ resetGame();
 
 changeGameButton.addEventListener("click", displayMainMenu)
 
+//functions
 function startGame() {
     currentGame = new Game()
+}
+
+function runGame(){
 }
 
 function hideImages() {
@@ -57,6 +59,8 @@ function resetGame() {
         setTimeout(displayClassicGameIcons, 2000)
     } else if (currentGame.gameType === "hard") {
         setTimeout(displayDifficultGameIcons, 2000)
+    } else if (displayMainMenu()) {
+        setTimeout(displayMainMenu, 100000)
     }
 }
 
@@ -65,20 +69,24 @@ function displayMainMenu() {
     classicGameSelector.classList.remove("hidden");
     difficultGameSelector.classList.remove("hidden");
     changeGameButton.classList.add("hidden")
+    hideImages()
 }
 
 function displayClassicGameIcons() {
     currentGame.gameMode("easy")
+    currentGame.gameType = "easy"
     userInstructions.innerText = "Choose your fighter!";
     catIcon.classList.remove("hidden")
     cupIcon.classList.remove("hidden")
     waterIcon.classList.remove("hidden")
     classicGameSelector.classList.add("hidden")
     difficultGameSelector.classList.add("hidden")
+    resultSection.classList.add("hidden");
 }
 
 function displayDifficultGameIcons() {
     currentGame.gameMode("hard");
+    currentGame.gameType = "hard"
     userInstructions.innerText = "Choose your fighter!";
     catIcon.classList.remove("hidden");
     cupIcon.classList.remove("hidden");
@@ -87,6 +95,7 @@ function displayDifficultGameIcons() {
     dogIcon.classList.remove("hidden")
     classicGameSelector.classList.add("hidden");
     difficultGameSelector.classList.add("hidden");
+    resultSection.classList.add("hidden");
 }
 
 function humanClassicSelection(event) {
@@ -121,13 +130,19 @@ function checkPlayerChoice(choice){
 }
 
 function resultsSection() {
-    resultSection.classList.remove("hidden")
-    resultSection.innerHTML = ''
-    hideImages()
-    resultSection.innerHTML += ` 
-    <img class="results-icons" src="${checkPlayerChoice(currentGame.humanPlayer.choice)}" alt="${currentGame.humanPlayer.choice}">
-    <img class="results-icons" src="${checkPlayerChoice(currentGame.catPlayer.choice)}" alt="${currentGame.catPlayer.choice}">`;
-
+  resultSection.innerHTML = ''
+  hideImages()
+  resultSection.classList.remove("hidden")
+    resultSection.innerHTML = ` 
+      <section class="icons">
+      <img class="results-icons" src="${checkPlayerChoice(
+        currentGame.humanPlayer.choice
+      )}" alt="${currentGame.humanPlayer.choice}">
+      <img class="results-icons" src="${checkPlayerChoice(
+        currentGame.catPlayer.choice
+      )}" alt="${currentGame.catPlayer.choice}">;
+      </section>`
+    resetGame()
 }
                
 function updateScore(){
@@ -137,6 +152,7 @@ function updateScore(){
 
 function updateMessage(){
     userInstructions.innerText = currentGame.message
+    changeGameButton.classList.remove("hidden");
 }
 
 function humanClassicSelectionHard(event) {
@@ -144,47 +160,22 @@ function humanClassicSelectionHard(event) {
     currentGame.humanPlayer.choice = "catPaw";
     currentGame.gameType = "hard"
     currentGame.catChoice();
-    // cupIcon.classList.add("hidden");
-    // catIcon.classList.remove("hidden");
-    // waterIcon.classList.add("hidden");
-    // yarnIcon.classList.add("hidden");
-    // dogIcon.classList.add("hidden");
   } else if (event.target.classList.contains("water-img")) {
     currentGame.humanPlayer.choice = "water";
     currentGame.gameType = "hard";
     currentGame.catChoice();
-    // catIcon.classList.add("hidden");
-    // cupIcon.classList.add("hidden");
-    // waterIcon.classList.remove("hidden");
-    // yarnIcon.classList.add("hidden");
-    // dogIcon.classList.add("hidden");
   } else if (event.target.classList.contains("cup-img")) {
     currentGame.humanPlayer.choice = "cup";
     currentGame.gameType = "hard";
     currentGame.catChoice();
-    // catIcon.classList.add("hidden");
-    // cupIcon.classList.remove("hidden");
-    // waterIcon.classList.add("hidden");
-    // yarnIcon.classList.add("hidden");
-    // dogIcon.classList.add("hidden");
   } else if (event.target.classList.contains("yarn-img")) {
     currentGame.humanPlayer.choice = "yarn";
     currentGame.gameType = "hard";
     currentGame.catChoice();
-    // catIcon.classList.add("hidden");
-    // cupIcon.classList.add("hidden");
-    // waterIcon.classList.remove("hidden");
-    // yarnIcon.classList.add("hidden");
-    // dogIcon.classList.add("hidden");
   } else if (event.target.classList.contains("dog-img")) {
     currentGame.humanPlayer.choice = "dog";
     currentGame.gameType = "hard";
     currentGame.catChoice();
-    // catIcon.classList.add("hidden");
-    // cupIcon.classList.remove("hidden");
-    // waterIcon.classList.add("hidden");
-    // yarnIcon.classList.add("hidden");
-    // dogIcon.classList.add("hidden");
   }
   currentGame.playDifficultGame();
 }
