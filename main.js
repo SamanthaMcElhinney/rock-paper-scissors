@@ -1,7 +1,4 @@
-//global variables
 var currentGame;
-
-//DOM
 var classicGameSelector = document.querySelector("#classic-game-selector");
 var difficultGameSelector = document.querySelector("#Difficult-game-selector");
 var userInstructions = document.querySelector(".user-instructions");
@@ -16,29 +13,22 @@ var winsCounterCat = document.querySelector("#wins-counter-cat");
 var images = document.querySelector(".icons");
 var resultSection = document.querySelector(".player-results");
 
-// event listeners
 window.addEventListener("load", startGame);
 classicGameSelector.addEventListener("click", displayClassicGameIcons);
 difficultGameSelector.addEventListener("click", displayDifficultGameIcons);
 images.addEventListener("click", function () {
-  humanClassicSelection(event);
-  resultsSection();
-  updateScore();
-  updateMessage();
-  resetGame();
-});
-
-images.addEventListener("click", function () {
-  humanClassicSelectionHard(event);
-  resultsSection();
-  updateScore();
-  updateMessage();
-  resetGame();
-});
-
+    if(currentGame.gameType === "easy"){
+         humanClassicSelection(event);
+    } else if(currentGame.gameType === "hard") {
+        humanClassicSelectionHard(event);
+    }
+ resultsSection()
+ updateScore()
+ updateMessage()
+ resetGame();
+})
 changeGameButton.addEventListener("click", displayMainMenu);
 
-//functions
 function startGame() {
   currentGame = new Game();
 }
@@ -53,7 +43,6 @@ function hideImages() {
   dogIcon.classList.add("hidden");
 }
 
-
 function resetGame() {
   if (currentGame.gameType === "easy") {
     console.log("currentGame.gameType", currentGame.gameType)
@@ -61,8 +50,6 @@ function resetGame() {
   } else if (currentGame.gameType === "hard") {
     console.log("currentGame.gameType", currentGame.gameType)
     setTimeout(displayDifficultGameIcons, 2000);
-  } else if (displayMainMenu()) {
-    setTimeout(displayMainMenu, 100000);
   }
 }
 
@@ -88,7 +75,6 @@ function displayClassicGameIcons() {
 
 function displayDifficultGameIcons() {
   currentGame.gameMode("hard");
-  currentGame.gameType = "hard";
   userInstructions.innerText = "Choose your fighter!";
   catIcon.classList.remove("hidden");
   cupIcon.classList.remove("hidden");
