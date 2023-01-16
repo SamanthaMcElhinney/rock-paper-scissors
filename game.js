@@ -56,7 +56,7 @@ class Game {
     } else {
       this.winner = cat;
       this.catPlayer.wins ++
-      this.message = "You lost!";
+      this.message = "You lose! Cat's are taking over the word 🌎";
     }
     return this.message
   }
@@ -91,7 +91,7 @@ class Game {
     } else {
       this.winner = cat;
       this.catPlayer.wins += 1;
-      this.message = "You lost!";
+      this.message = "You lose! Cat's are taking over the word 🌎";
     } 
     return this.message
   }
