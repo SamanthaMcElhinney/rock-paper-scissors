@@ -26,6 +26,8 @@ class Game {
         var randomIndex = Math.floor(Math.random() * this.choices.length);
         var randomChoice = this.choices[randomIndex]
         this.catPlayer.choice = randomChoice
+        console.log("index", randomIndex);
+        console.log("random choice", this.catPlayer.choice)
     }
     return this.catPlayer.choice
   }
