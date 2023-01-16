@@ -26,8 +26,6 @@ class Game {
         var randomIndex = Math.floor(Math.random() * this.choices.length);
         var randomChoice = this.choices[randomIndex]
         this.catPlayer.choice = randomChoice
-        console.log("index", randomIndex);
-        console.log("random choice", this.catPlayer.choice)
     }
     return this.catPlayer.choice
   }
@@ -58,7 +56,7 @@ class Game {
     } else {
       this.winner = cat;
       this.catPlayer.wins ++
-      this.message = "You lose! Cat's are taking over the word 🌎";
+      this.message = "You lost!";
     }
     return this.message
   }
@@ -93,7 +91,7 @@ class Game {
     } else {
       this.winner = cat;
       this.catPlayer.wins += 1;
-      this.message = "You lose! Cat's are taking over the word 🌎";
+      this.message = "You lose! Cat's are taking over the word";
     } 
     return this.message
   }
