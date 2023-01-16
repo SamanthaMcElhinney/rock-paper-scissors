@@ -1,4 +1,5 @@
 var currentGame;
+var humanEmoji = '👩🏽‍🎤'
 var classicGameSelector = document.querySelector("#classic-game-selector");
 var difficultGameSelector = document.querySelector("#Difficult-game-selector");
 var userInstructions = document.querySelector(".user-instructions");
@@ -90,15 +91,12 @@ function humanClassicSelection(event) {
   if (event.target.classList.contains("cat-img")) {
     currentGame.humanPlayer.choice = "catPaw";
     currentGame.catChoice();
-    hideImages();
   } else if (event.target.classList.contains("water-img")) {
     currentGame.humanPlayer.choice = "water";
     currentGame.catChoice();
-    hideImages();
   } else if (event.target.classList.contains("cup-img")) {
     currentGame.humanPlayer.choice = "cup";
     currentGame.catChoice();
-    hideImages();
   }
   currentGame.playEasyGame();
 }
