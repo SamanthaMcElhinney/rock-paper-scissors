@@ -1,5 +1,8 @@
+/*---------------Data Model------------*/
 var currentGame;
-var humanEmoji = '👩🏽‍🎤'
+var humanIcon = new Player("human", "👩🏽‍🎤");
+
+/*----------------DOM Elements----------------*/
 var classicGameSelector = document.querySelector("#classic-game-selector");
 var difficultGameSelector = document.querySelector("#Difficult-game-selector");
 var userInstructions = document.querySelector(".user-instructions");
@@ -14,27 +17,27 @@ var winsCounterCat = document.querySelector("#wins-counter-cat");
 var images = document.querySelector(".icons");
 var resultSection = document.querySelector(".player-results");
 
+/*---------------EventListeners-----------------*/
 window.addEventListener("load", startGame);
 classicGameSelector.addEventListener("click", displayClassicGameIcons);
 difficultGameSelector.addEventListener("click", displayDifficultGameIcons);
 images.addEventListener("click", function () {
-    if(currentGame.gameType === "easy"){
-         humanClassicSelection(event);
-    } else if(currentGame.gameType === "hard") {
-        humanClassicSelectionHard(event);
-    }
- resultsSection()
- updateScore()
- updateMessage()
- resetGame();
-})
+  if (currentGame.gameType === "easy") {
+    humanClassicSelection(event);
+  } else if (currentGame.gameType === "hard") {
+    humanClassicSelectionHard(event);
+  }
+  resultsSection();
+  updateScore();
+  updateMessage();
+  resetGame();
+});
 changeGameButton.addEventListener("click", displayMainMenu);
 
+/*-------------Functions-----------------*/
 function startGame() {
   currentGame = new Game();
 }
-
-function runGame() {}
 
 function hideImages() {
   catIcon.classList.add("hidden");
@@ -46,10 +49,8 @@ function hideImages() {
 
 function resetGame() {
   if (currentGame.gameType === "easy") {
-    console.log("currentGame.gameType", currentGame.gameType)
     setTimeout(displayClassicGameIcons, 2000);
   } else if (currentGame.gameType === "hard") {
-    console.log("currentGame.gameType", currentGame.gameType)
     setTimeout(displayDifficultGameIcons, 2000);
   }
 }
@@ -64,7 +65,6 @@ function displayMainMenu() {
 
 function displayClassicGameIcons() {
   currentGame.gameMode("easy");
-  currentGame.gameType = "easy";
   userInstructions.innerText = "Choose your fighter!";
   catIcon.classList.remove("hidden");
   cupIcon.classList.remove("hidden");
@@ -121,13 +121,9 @@ function resultsSection() {
   resultSection.classList.remove("hidden");
   resultSection.innerHTML = ` 
       <section class="icons">
-      <img class="results-icons" src="${checkPlayerChoice(
-        currentGame.humanPlayer.choice
-      )}" alt="${currentGame.humanPlayer.choice}">
-      <img class="results-icons" src="${checkPlayerChoice(
-        currentGame.catPlayer.choice
-      )}" alt="${currentGame.catPlayer.choice}">;
-      </section>`;
+        <img class="results-icons" src="${checkPlayerChoice(currentGame.humanPlayer.choice)}" alt="${currentGame.humanPlayer.choice}">
+        <img class="results-icons" src="${checkPlayerChoice(currentGame.catPlayer.choice)}" alt="${currentGame.catPlayer.choice}">
+      </section>`
   resetGame();
 }
 
