@@ -20,14 +20,14 @@ class Game {
   catChoice() {
     if (this.gameType === "easy") {
       var randomIndex = Math.floor(Math.random() * this.choices.length);
-      var randomChoice = this.choices[randomIndex]
-      this.catPlayer.choice = randomChoice
+      var randomChoice = this.choices[randomIndex];
+      this.catPlayer.choice = randomChoice;
     } else if (this.gameType === "hard") {
         var randomIndex = Math.floor(Math.random() * this.choices.length);
-        var randomChoice = this.choices[randomIndex]
-        this.catPlayer.choice = randomChoice
+        var randomChoice = this.choices[randomIndex];
+        this.catPlayer.choice = randomChoice;
     }
-    return this.catPlayer.choice
+    return this.catPlayer.choice;
   }
 
   humanChoice(event) {
@@ -40,22 +40,22 @@ class Game {
     var cat = this.catPlayer.choice;
     if (human === cat) {
       this.winner = "draw";
-      this.message = "It's a draw"
+      this.message = "It's a draw";
     } else if (human === "water" && cat === "catPaw") {
       this.winner = human;
       this.humanPlayer.wins ++;
-      this.message = "You win! 👩🏽‍🎤"
+      this.message = "You win! 👩🏽‍🎤";
     } else if (human === "cup" && cat === "water") {
       this.winner = human;
       this.humanPlayer.wins ++;
       this.message = "You win! 👩🏽‍🎤";
     } else if (human === "catPaw" && cat === "cup") {
       this.winner = human;
-      this.humanPlayer.wins ++
+      this.humanPlayer.wins ++;
       this.message = "You win! 👩🏽‍🎤";
     } else {
       this.winner = cat;
-      this.catPlayer.wins ++
+      this.catPlayer.wins ++;
       this.message = "You lost! Cat's are taking over the world! 😼 🌎";
     }
     return this.message
@@ -68,14 +68,14 @@ class Game {
 
     if (human === cat) {
       this.winner = "draw";
-      this.message = "It's a draw!"
+      this.message = "It's a draw!";
     } else if (human === "water" && (cat === "catPaw" || "yarn")) {
       this.winner = human;
-      this.humanPlayer.wins += 1;
+      this.humanPlayer.wins ++;
       this.message = "You win! 👩🏽‍🎤";
     }else if (human === "cat" && (cat === "cup"|| "yarn")) {
       this.winner = human;
-      this.humanPlayer.wins += 1;
+      this.humanPlayer.wins ++;
       this.message = "You win! 👩🏽‍🎤";
     } else if (human === "cup" && (cat === "water" || "dog")) {
       this.winner = human;
