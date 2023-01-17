@@ -1,11 +1,14 @@
 * {
-    font-family: 'Montserrat', sans-serif;
+   font-family: 'Montserrat', sans-serif;
 }
 
 body {
     display: flex;
     height: 100vh;
-    justify-content: space-evenly; 
+}
+
+.hidden {
+    display: none !important;
 }
 
 .side-bar{
@@ -18,17 +21,18 @@ body {
 }
 
 .scoring {
-    font-size: large;
+    font-size: 25px;
 }
 
-.player1-img, .player2-img{
+.wins-counter {
+    size: 50px;
+}
+
+.player1-img, 
+.player2-img{
     margin-top: 100px;
     width: 170px;
-    height:150px;
-}
-
-.hidden {
-    display: none !important;
+    height: 150px;
 }
 
 .main-page {
@@ -39,7 +43,14 @@ body {
     background: #2eb872; 
 }
 
+.main-page-title {
+    font-size:65px;
+    font-weight: bolder;
+    margin: 10px
+}
+
 .game-selector {
+    width:fit-content;
     display: flex;
     background: #a3de83;
     flex-wrap: nowrap;
@@ -48,13 +59,9 @@ body {
     align-items: center; 
     padding-right: 50px;
     padding-left: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     cursor: pointer;
-    border: 1px solid
-}
-
-#classic-game-selector{
-    margin: top 300px;
+    border: 1px solid;
 }
 
 .user-instructions{
@@ -62,21 +69,20 @@ body {
     text-align: center;
 }
 
-.main-page-title {
-    font-size:75px;
-    font-weight: bolder;
-}
-.cat-img, .cup-img, .water-img, .yarn-img, .dog-img, .results-icons {
+.cat-img, 
+.cup-img, 
+.water-img, 
+.yarn-img, 
+.dog-img, 
+.results-icons {
     width:200px;
     height: 200px;
     display: flex;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px;
 }
 
 .player-description {
+    font-size: 35px;
     font-weight: bolder;
 }
 
@@ -98,6 +104,3 @@ button {
     border-radius: 7px;
 }
 
-.results-icons {
-    display:block;
-}
