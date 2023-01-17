@@ -1,8 +1,7 @@
-/*---------------Data Model------------*/
 var currentGame;
-var humanIcon = new Player("human", "👩🏽‍🎤");
+var endTimeOut1;
+var endTimeOut2; 
 
-/*----------------DOM Elements----------------*/
 var classicGameSelector = document.querySelector("#classic-game-selector");
 var difficultGameSelector = document.querySelector("#Difficult-game-selector");
 var userInstructions = document.querySelector(".user-instructions");
@@ -17,7 +16,7 @@ var winsCounterCat = document.querySelector("#wins-counter-cat");
 var images = document.querySelector(".icons");
 var resultSection = document.querySelector(".player-results");
 
-/*---------------EventListeners-----------------*/
+
 window.addEventListener("load", startGame);
 classicGameSelector.addEventListener("click", displayClassicGameIcons);
 difficultGameSelector.addEventListener("click", displayDifficultGameIcons);
@@ -34,7 +33,6 @@ images.addEventListener("click", function () {
 });
 changeGameButton.addEventListener("click", displayMainMenu);
 
-/*-------------Functions-----------------*/
 function startGame() {
   currentGame = new Game();
 }
@@ -49,17 +47,20 @@ function hideImages() {
 
 function resetGame() {
   if (currentGame.gameType === "easy") {
-    setTimeout(displayClassicGameIcons, 2000);
+    endTimeOut1 = setTimeout(displayClassicGameIcons, 2000);
   } else if (currentGame.gameType === "hard") {
-    setTimeout(displayDifficultGameIcons, 2000);
-  }
+    endTimeOut2 = setTimeout(displayDifficultGameIcons, 2000);
+  }  
 }
 
 function displayMainMenu() {
+  clearTimeout(endTimeOut1)
+  clearTimeout(endTimeOut2)
   userInstructions.innerText = "Choose your game!";
   classicGameSelector.classList.remove("hidden");
   difficultGameSelector.classList.remove("hidden");
   changeGameButton.classList.add("hidden");
+  resultSection.classList.add("hidden");
   hideImages();
 }
 
@@ -124,7 +125,6 @@ function resultsSection() {
         <img class="results-icons" src="${checkPlayerChoice(currentGame.humanPlayer.choice)}" alt="${currentGame.humanPlayer.choice}">
         <img class="results-icons" src="${checkPlayerChoice(currentGame.catPlayer.choice)}" alt="${currentGame.catPlayer.choice}">
       </section>`
-  resetGame();
 }
 
 function updateScore() {
