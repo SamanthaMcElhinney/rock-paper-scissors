@@ -25,19 +25,19 @@ This project was completed by [Samantha McElhinney](https://github.com/SamanthaM
 
 ### Learning Goals:
 - Demonstrate the understanding of differences between the data model and DOM with use of "data model first" approach. 
-- Write clean and DRY JavaScript ipt that achieves the logic for rock-paper-scissors. 
+- Write clean and DRY JavaScript that achieves the logic for rock-paper-scissors. 
 - Use complex problem solving and logic to independently create the application, without consulting outside sources.
 - Capture user events and appropriately delegate those events creating a responsive webpage.
 - Use HTML and CSS to replicate a given layout.
 
 ### Wins + Challenges:
 
-#### Wins
+#### Wins:
 - This project really helped solidify my understanding between class to class interaction and updating the data model first. I used dev tools to ensure the game was fully functioning, prior to any manipulation on the DOM. 
 - I furthered my understanding of breaking down complex problems with use of debugger when my code broke and breaking the problem down line by line, with completing all functionality of the app.
 - This was the first project we were given more creative freedom and I got to further my understanding of CSS and HTML with use of flexbox.
 
 #### Challenges:
 - I had to refactor my code with a breakdown between the methods in my `game` and `player` class, after manipulation of the DOM with my `main.js` file. I had to first create a method to generate the gamemode for easy or difficult in my `game` class and invoke that function with my computer generated method in order to generate a random selection from the correct length of the array for the computer generated choice. 
-- Initially after the user selects the `Change game?` button to return to the main page, it would timeout too soon before the user could make their selection and return you to the gamemode with selecting your fighter icons instead of selecting the game type. I did some further research and added the `clearTimeout()` method to cancel a timeout previously established.
-- The biggest challenge was deciding what logic could be reserved for classes and what could live in the `javascript.js` file. I had to refactor several times in order to update the data model first. The `player.js` class was difficult to write a method with this approach, given it is user dependent for user selection. I also struggled at first to make the code dynamic and required refactoring my code at the end. 
+- Initially after the user selects the `change game` to return to the main page, it would timeout too soon before the user could make their selection and return you to the gamemode with selecting your fighter icons instead of selecting the game type. I did some further research and added the `clearTimeout()` method to cancel a timeout previously established.
+- The biggest challenge was deciding what logic could be reserved for classes and what could live in the `javascript.js` file. I had to refactor several times in order to update the data model first. The `player.js` class was difficult to write a method with this approach, given it is user dependent for the selection. I also struggled at first to make the code dynamic and required refactoring my code at the end. 
