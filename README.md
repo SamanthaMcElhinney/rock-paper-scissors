@@ -13,7 +13,7 @@ Water, Cat, Cup was an application made to simulate the traditional rock-paper-s
 
 ### Preview of App:
 
-<img width="1440" alt="app preview" src="src/Screen Shot 2023-01-16 at 8.36.37 PM.png'>
+<img width="1440" alt="app preview" src="src/Water, Cat, Cup Preview.png"/>
 
 ### Context:
 
