@@ -104,7 +104,7 @@ function humanClassicSelection(event) {
 
 function checkPlayerChoice(choice) {
   if (choice === "catPaw") {
-    return "src/crop-Shutterstock-a-cute-calico-cat-raises-its-paw-against-a-blue-background (2).png";
+    return "src/cat paw.png";
   } else if (choice === "cup") {
     return "src/cup image.png";
   } else if (choice === "water") {
