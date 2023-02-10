@@ -10,6 +10,7 @@ Water, Cat, Cup was an application made to simulate the traditional rock-paper-s
 1. Open terminal and navigate where you would like to store the application. 
 1. Click `SSH` and copy and paste `git clone git@github.com:SamanthaMcElhinney/rock-paper-scissors.git` into your terminal.
 1. Type the phrase `open index.html` into your terminal to open the test window of the application.
+1. Simply use this  [DeployableLink](https://samanthamcelhinney.github.io/rock-paper-scissors/)
 
 ### Preview of App:
 
